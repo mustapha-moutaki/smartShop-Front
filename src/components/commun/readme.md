@@ -1,0 +1,1 @@
+<!--  we have here the component that are commnun between all pages or all components -->
