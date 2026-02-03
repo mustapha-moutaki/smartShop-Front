@@ -10,7 +10,8 @@ const OrdersPage: React.FC = () => {
     const fetchOrders = async () => {
       try {
         const response = await getOrders();
-        setOrders(response.data);
+        console.log("this is the response from orderPAge: ", response)
+        setOrders(response);
       } catch (error) {
         console.log("Error fetching orders:", error);
       } finally {

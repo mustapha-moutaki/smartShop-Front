@@ -7,6 +7,7 @@ const ORDER_BASE = "/orders"
 // get all orders
 export const getOrders = async ()=>{
     const response = await apiClient.get(ORDER_BASE);
+    console.log("this is the response sevice: ", response);
     return response.data
 }
 
