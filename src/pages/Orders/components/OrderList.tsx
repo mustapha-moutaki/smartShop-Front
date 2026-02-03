@@ -1,6 +1,6 @@
 
 import type { OrderResponse } from "../../../types/order";
-import { EditButtonOutline, DeleteButton } from "../../../components/commun/Button";
+import { EditButtonOutline, DeleteButton, OrderShowButtonOutline } from "../../../components/commun/Button";
 import { useNavigate } from "react-router-dom";
 
 interface OrderListProps {
@@ -15,7 +15,7 @@ const OrderList: React.FC<OrderListProps> = ({ orders }) => {
    const navigate = useNavigate(); 
 
 
-   
+
   if (orders.length === 0) return <p className="text-slate-500">No orders found.</p>;
 
 
@@ -59,7 +59,7 @@ const OrderList: React.FC<OrderListProps> = ({ orders }) => {
               </td>
 
                <td className="px-6 py-4">
-                 <EditButtonOutline onClick={() => navigate(`/orders/edit/${order.id}`)} />
+                <OrderShowButtonOutline onClick={() => navigate(`/orders/${order.id}`)} />
                 <DeleteButton onClick={()=> handleDelete(order.id)} />
                 
               </td>

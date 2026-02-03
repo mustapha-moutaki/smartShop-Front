@@ -8,6 +8,7 @@ import  SignInPage  from "./pages/Auth/SignInPage.tsx"
 import MainLayout from "./layouts/MainLayout.tsx";
 import DashboardLayout from "./layouts/DashboardLayout.tsx";
 import DashboardPage from "./pages/Dashboard/DashboardPage.tsx";
+import OrderShowPage from "./pages/Orders/OrderShowPage.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -28,6 +29,7 @@ createRoot(document.getElementById("root")!).render(
 
               <Route  path="/orders" element={<OrdersPage/>} />
               <Route path="/admin-dashboard" element={< DashboardPage/>} />
+              <Route path="/orders/:id" element={< OrderShowPage/>} />
 
           </Route>
         

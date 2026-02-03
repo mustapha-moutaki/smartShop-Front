@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pencil, Trash2, Plus } from 'lucide-react';
+import { Pencil, Trash2, Plus, Eye } from 'lucide-react';
 
 interface ButtonProps {
     onClick?: () => void;
@@ -7,7 +7,6 @@ interface ButtonProps {
     className?: string;
 }
 
-// Base transition and focus styles for all buttons
 const baseStyles = "inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:pointer-events-none";
 
 export const EditButton: React.FC<ButtonProps> = ({ onClick, disabled, className = '' }) => (
@@ -72,5 +71,16 @@ export const CreateButtonOutline: React.FC<ButtonProps> = ({ onClick, disabled, 
         className={`${baseStyles} border border-indigo-200 bg-indigo-50/30 text-indigo-600 hover:bg-indigo-50 ${className}`}
     >
         <Plus size={18} />
+    </button>
+);
+
+
+export const OrderShowButtonOutline: React.FC<ButtonProps> = ({ onClick, disabled, className = '' }) => (
+    <button
+        onClick={onClick}
+        disabled={disabled}
+        className={`${baseStyles} border border-slate-200 bg-slate-50/50 text-slate-600 hover:bg-slate-100 ${className}`}
+    >
+        <Eye size={16} />
     </button>
 );
