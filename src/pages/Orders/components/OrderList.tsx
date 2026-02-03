@@ -2,15 +2,16 @@
 import type { OrderResponse } from "../../../types/order";
 import { EditButtonOutline, DeleteButton, OrderShowButtonOutline, DeleteButtonOutline } from "../../../components/commun/Button";
 import { useNavigate } from "react-router-dom";
-
+import { deleteOrder} from "../../../services/order.service"
 interface OrderListProps {
   orders: OrderResponse[];
+   onRefresh: () => void;
 }
 
 
  
 
-const OrderList: React.FC<OrderListProps> = ({ orders }) => {
+const OrderList: React.FC<OrderListProps> = ({ orders, onRefresh }) => {
 
    const navigate = useNavigate(); 
 
@@ -19,9 +20,15 @@ const OrderList: React.FC<OrderListProps> = ({ orders }) => {
   if (orders.length === 0) return <p className="text-slate-500">No orders found.</p>;
 
 
-  const handleDelete = (id: number)=>{
+  const handleDelete = async(id: number)=>{
     if(confirm("are u sure u wanna to delete this order? ")){
-
+      try{
+        await deleteOrder(id);
+           onRefresh(); 
+        console.log("user with id: "+ id +" deleted")
+      }catch(e){
+        console.log("Failed to delete Order", e);
+      }
     }
   }
 

@@ -35,3 +35,19 @@ export const deleteOrder = async(id: number)=>{
     const response = await apiClient.delete(`${ORDER_BASE}/${id}`);
     return response.data
 }
+
+
+export const CancelOrder = async(id: number)=>{
+    // const response = await apiClient.
+}
+
+export const ConfirmOrder = async(id: number)=>{
+    const response = await apiClient.post(`${ORDER_BASE}/${id}/confirm`);
+    return response.data;
+}
+
+
+export const ShowClientHistoryById = async(clientId: number)=>{
+    const response = await apiClient.get(`/my-history/${clientId}`);
+    return response.data;
+}
