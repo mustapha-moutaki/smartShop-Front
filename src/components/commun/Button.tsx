@@ -86,7 +86,6 @@ export const OrderShowButtonOutline: React.FC<ButtonProps> = ({ onClick, disable
     </button>
 );
 
-
 export const ConfirmButton: React.FC<ButtonProps> = ({ onClick, disabled, className = '', text= '' }) => (
     <button
         type='button'
