@@ -2,20 +2,41 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
-import App from "./App.tsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.tsx";
 import OrdersPage from "./pages/Orders/OrdersPage.tsx";
 import  SignInPage  from "./pages/Auth/SignInPage.tsx"
+import MainLayout from "./layouts/MainLayout.tsx";
+import DashboardLayout from "./layouts/DashboardLayout.tsx";
+import DashboardPage from "./pages/Dashboard/DashboardPage.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
+
+         {/* Public layout */}
+        <Route element={<MainLayout />}>
+
+              <Route path="/login" element={<SignInPage />} />
+
+        </Route>
+
+
+
+           {/* Dashboard Layout  */}
+          <Route element={< DashboardLayout/>}>
+
+              <Route  path="/orders" element={<OrdersPage/>} />
+              <Route path="/admin-dashboard" element={< DashboardPage/>} />
+
+          </Route>
+        
 
         <Route path="*" element={<NotFoundPage />} />
-        <Route  path="/orders" element={<OrdersPage/>} />
-        <Route path= "/login" element={<SignInPage/>} />
+
+
+
+      
       </Routes>
     </BrowserRouter>
   </StrictMode>
