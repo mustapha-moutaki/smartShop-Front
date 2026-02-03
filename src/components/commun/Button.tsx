@@ -1,10 +1,11 @@
 import React from 'react';
-import { Pencil, Trash2, Plus, Eye } from 'lucide-react';
+import { Pencil, Trash2, Plus, Eye, Check } from 'lucide-react';
 
 interface ButtonProps {
     onClick?: () => void;
     disabled?: boolean;
     className?: string;
+    text?: string;
 }
 
 const baseStyles = "inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:pointer-events-none";
@@ -82,5 +83,18 @@ export const OrderShowButtonOutline: React.FC<ButtonProps> = ({ onClick, disable
         className={`${baseStyles} border border-slate-200 bg-slate-50/50 text-slate-600 hover:bg-slate-100 ${className}`}
     >
         <Eye size={16} />
+    </button>
+);
+
+
+export const ConfirmButton: React.FC<ButtonProps> = ({ onClick, disabled, className = '', text= '' }) => (
+    <button
+        type='button'
+        onClick={onClick}
+        disabled={disabled}
+        className={`${baseStyles} bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm shadow-emerald-200 ${className}`}
+    >
+        <Check size={16} />
+        <span>Confirm {text}</span>
     </button>
 );
