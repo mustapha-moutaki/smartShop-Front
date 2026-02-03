@@ -1,6 +1,6 @@
 
 import type { OrderResponse } from "../../../types/order";
-import { EditButtonOutline, DeleteButton, OrderShowButtonOutline } from "../../../components/commun/Button";
+import { EditButtonOutline, DeleteButton, OrderShowButtonOutline, DeleteButtonOutline } from "../../../components/commun/Button";
 import { useNavigate } from "react-router-dom";
 
 interface OrderListProps {
@@ -70,5 +70,6 @@ const OrderList: React.FC<OrderListProps> = ({ orders }) => {
     </div>
   );
 };
+
 
 export default OrderList;
