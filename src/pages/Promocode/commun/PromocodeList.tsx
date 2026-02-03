@@ -1,12 +1,13 @@
 import { DeleteButtonOutline, EditButtonOutline } from "../../../components/commun/Button";
 import type { PromocodeResponse } from "../../../types/promocode";
-
+import { deletePromocode } from "../../../services/promocode.service";
 
 interface PromocodeListProps{
     promocodes: PromocodeResponse[];
+    onFresh: ()=>void;
 }
 
-const PromocodeList:React.FC<PromocodeListProps> = ({ promocodes }) => {
+const PromocodeList:React.FC<PromocodeListProps> = ({ promocodes, onFresh}) => {
 
   if (!promocodes || promocodes.length === 0) {
     return (
@@ -16,6 +17,23 @@ const PromocodeList:React.FC<PromocodeListProps> = ({ promocodes }) => {
         </td>
       </tr>
     );
+  }
+
+
+
+  // delete promocode
+
+  const handle1DeletePromocode = async(id: number)=>{
+    if(confirm("are you sure, you want to delete this item ?")){
+         try{
+        await deletePromocode(id);
+        console.log("the promocode deleted")
+        onFresh();
+    }catch(err){
+        console.log("Failed to delete the promocode with id: "+ id, err)
+    }
+    
+}
   }
 
   return (
@@ -37,11 +55,13 @@ const PromocodeList:React.FC<PromocodeListProps> = ({ promocodes }) => {
            <td className="px-6 py-4 gap-3.5">
             <span>
                  <EditButtonOutline
-                
+                // onClick={}
                  />
             </span>
                <span>
-                  <DeleteButtonOutline />
+                  <DeleteButtonOutline
+                  onClick={()=>handle1DeletePromocode(promocode.id)}
+                   />
                </span>
                
           </td>

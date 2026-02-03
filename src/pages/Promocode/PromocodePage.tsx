@@ -11,7 +11,7 @@ const PromocodePage = ()=>{
     const[error, setError] = useState('');
 
     const navigate = useNavigate()
-    useEffect(()=>{
+    
         const fetchPromoCodes = async()=>{
             try{
                 const response = await getAll();
@@ -27,15 +27,16 @@ const PromocodePage = ()=>{
             }
 
         };
-        fetchPromoCodes()
+   
+
+    useEffect(()=>{
+        fetchPromoCodes();
     }, [])
 
 
 
    return (
     <div className="p-6 space-y-4">
-
-
 
           <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold text-slate-800">Promocodes</h1>
@@ -75,7 +76,7 @@ const PromocodePage = ()=>{
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
-              <PromocodeList promocodes={promocodes} />
+              <PromocodeList promocodes={promocodes}  onFresh={fetchPromoCodes}/>
             </tbody>
           </table>
         </div>
