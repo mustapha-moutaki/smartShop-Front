@@ -32,11 +32,15 @@ export default function Sidebar() {
         <Link to="/orders" className={linkClass("/orders")}>
           <span className="font-medium">Manage Orders</span>
         </Link>
+
+        <Link to="/promocodes" className={linkClass("/promocodes")}>
+        <span className="front-medium">Manage promocodes</span>
+        </Link>
       </nav>
 
       {/* Logout or Help Section */}
       <div className="p-4 border-t border-slate-100">
-         <button className="w-full text-left px-4 py-3 text-sm text-slate-500 hover:text-red-600 transition-colors">
+         <button className="w-full text-left px-4 py-3 text-sm text-slate-500 hover:text-black-900 transition-colors  bg-red-600">
             Log out
          </button>
       </div>

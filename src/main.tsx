@@ -9,6 +9,7 @@ import MainLayout from "./layouts/MainLayout.tsx";
 import DashboardLayout from "./layouts/DashboardLayout.tsx";
 import DashboardPage from "./pages/Dashboard/DashboardPage.tsx";
 import OrderShowPage from "./pages/Orders/OrderShowPage.tsx";
+import PromocodePage from "./pages/Promocode/PromocodePage.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -31,6 +32,7 @@ createRoot(document.getElementById("root")!).render(
               <Route path="/admin-dashboard" element={< DashboardPage/>} />
               <Route path="/orders/:id" element={< OrderShowPage/>} />
 
+              <Route path="/promocodes" element={< PromocodePage/>} />
           </Route>
         
 
