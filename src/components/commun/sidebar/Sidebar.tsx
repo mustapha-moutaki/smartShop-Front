@@ -26,11 +26,11 @@ export default function Sidebar() {
 
       {/* Navigation Links */}
       <nav className="flex-1 px-4 space-y-2 mt-4">
-        <Link to="/dashboard" className={linkClass("/dashboard")}>
+        <Link to="/admin-dashboard" className={linkClass("/dashboard")}>
           <span className="font-medium">Dashboard</span>
         </Link>
         <Link to="/orders" className={linkClass("/orders")}>
-          <span className="font-medium">Orders</span>
+          <span className="font-medium">Manage Orders</span>
         </Link>
       </nav>
 
