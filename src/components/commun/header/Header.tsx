@@ -5,6 +5,7 @@ interface User {
   role: string;
 }
 
+
 export default function Header() {
 
   const [user, setUser] = useState<User | null>(null);
