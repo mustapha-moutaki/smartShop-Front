@@ -71,5 +71,4 @@ const OrderList: React.FC<OrderListProps> = ({ orders }) => {
   );
 };
 
-
 export default OrderList;
