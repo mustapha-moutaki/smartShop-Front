@@ -8,4 +8,5 @@ export interface PromocodeResponse{
 export interface PromoCodeRequest{
     code: string;
     percentage?: number
+    status?:boolean
 }

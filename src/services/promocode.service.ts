@@ -18,3 +18,13 @@ export const deletePromocode = async(id: number)=>{
     const response = await apiClient.delete(`${PROMOCODE_BASE}/${id}`);
     return response?.data;
 }
+
+export const getPromocodeById = async(id: number)=>{
+    const response = await apiClient.get(`${PROMOCODE_BASE}/${id}`);
+    return response?.data
+}
+
+export const updatePromocode = async (id: number, payload: PromoCodeRequest)=>{
+    const response = await apiClient.put(`${PROMOCODE_BASE}/${id}`, payload);
+    return  response?.data
+}

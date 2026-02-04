@@ -1,6 +1,7 @@
 import { DeleteButtonOutline, EditButtonOutline } from "../../../components/commun/Button";
 import type { PromocodeResponse } from "../../../types/promocode";
 import { deletePromocode } from "../../../services/promocode.service";
+import { useNavigate } from "react-router-dom";
 
 interface PromocodeListProps{
     promocodes: PromocodeResponse[];
@@ -19,7 +20,7 @@ const PromocodeList:React.FC<PromocodeListProps> = ({ promocodes, onFresh}) => {
     );
   }
 
-
+  const navigate = useNavigate();
 
   // delete promocode
 
@@ -55,7 +56,7 @@ const PromocodeList:React.FC<PromocodeListProps> = ({ promocodes, onFresh}) => {
            <td className="px-6 py-4 gap-3.5">
             <span>
                  <EditButtonOutline
-                // onClick={}
+                onClick={()=> navigate(`/promocodes/${promocode.id}`)}
                  />
             </span>
                <span>
