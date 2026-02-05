@@ -4,14 +4,11 @@ import { getAllProducts } from "../../services/product.service";
 import { useNavigate } from "react-router-dom";
 import type { PageResponse, ProductResponse } from "../../types/product";
 
-
 const ProductsPage = () => {
 
-    
     const [products, setProducts] = useState<ProductResponse[]>([]); 
 
     const [totalPages, setTotalPages] = useState<number>(0);
-
 
     const [page, setPage] = useState<number>(0);
 
