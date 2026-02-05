@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import type { PromoCodeRequest, PromocodeResponse } from "../../types/promocode";
 import {getPromocodeById, updatePromocode} from "../../services//promocode.service"
@@ -12,6 +12,7 @@ const EditPromocodePage = ()=>{
     const [code, setCode] = useState('');
     const [percentage, setPercentage] = useState("");
     const [status, setStatus] = useState<boolean | null>(null);
+    const navigate = useNavigate();
 
     const fetchPromocode = async()=>{
         try{
@@ -50,6 +51,7 @@ const EditPromocodePage = ()=>{
             setLoading(true); 
             const response = await updatePromocode(Number(id), payload);
             console.log("the promocode updated successfully: ", response);
+            navigate("/promocodes")
         } catch (err: any) {
             setError(err.message || "Error updating");
             console.log("Failed to udpate the promocode :", err)

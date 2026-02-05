@@ -37,7 +37,7 @@ const OrdersPage: React.FC = () => {
         </div>
 
         <button
-          onClick={() => navigate("/orders/create")}
+          onClick={() => navigate("/orders/new")}
           className="flex items-center justify-center gap-2 px-5 py-2.5 bg-indigo-600 text-white font-semibold rounded-xl shadow-md shadow-indigo-100 hover:bg-indigo-700 active:scale-95 transition-all"
         >
           <span className="text-xl">+</span>
