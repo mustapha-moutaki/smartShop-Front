@@ -8,7 +8,7 @@ interface ProductListProps {
 const ProductList: React.FC<ProductListProps> = ({ products }) => {
     return (
         <div className="w-full max-w-6xl mx-auto p-6">
-            {/* Header Section styled to match the clean Slate aesthetic */}
+          
             <div className="flex justify-between items-center mb-6 px-2">
                 <h2 className="text-2xl font-bold text-slate-800 tracking-tight">Products</h2>
                 <span className="text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
@@ -16,7 +16,6 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
                 </span>
             </div>
 
-            {/* Table Container - Rounded, Bordered, and Shadowed like OrderList */}
             <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
                 <table className="w-full text-left border-collapse">
                     <thead className="bg-slate-50 border-b border-slate-200">
@@ -66,5 +65,4 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
         </div>
     );
 };
-
 export default ProductList;
