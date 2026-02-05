@@ -50,7 +50,6 @@ const PromocodePage = ()=>{
         </div>
 
 
-     
 
       {loading ? (
         // 1. Show Spinner while loading
