@@ -9,13 +9,10 @@ interface OrderListProps {
 }
 
 
- 
 
 const OrderList: React.FC<OrderListProps> = ({ orders, onRefresh }) => {
 
    const navigate = useNavigate(); 
-
-
 
   if (orders.length === 0) return <p className="text-slate-500">No orders found.</p>;
 
