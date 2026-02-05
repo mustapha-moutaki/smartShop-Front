@@ -14,7 +14,6 @@ const OrderShowPage = () => {
   const [order, setOrder] = useState<any>(null);
   const [error, setError] = useState("");
 
-  // Function to reload data (reused for initial fetch and after actions)
   const fetchOrder = async () => {
     try {
       if (id) {
@@ -36,18 +35,18 @@ const OrderShowPage = () => {
 
   const handleUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError(""); // Clear error
+    setError(""); 
     try {
       await updateOrder(Number(id), { status: status });
       alert("Status updated successfully!");
-      fetchOrder(); // Refresh data
+      fetchOrder(); 
     } catch (error: any) {
       setError(error.response?.data?.message || "Update failed.");
     }
   };
 
   const handleConfirmOrder = async (id: number) => {
-    setError(""); // Clear previous error before trying
+    setError(""); 
     try {
       await ConfirmOrder(id);
       alert("The order confirmed");
