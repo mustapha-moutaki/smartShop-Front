@@ -11,6 +11,7 @@ import DashboardPage from "./pages/Dashboard/DashboardPage.tsx";
 import OrderShowPage from "./pages/Orders/OrderShowPage.tsx";
 import PromocodePage from "./pages/Promocode/PromocodePage.tsx";
 import EditPromocodePage from "./pages/Promocode/EditPromocodePage.tsx";
+import CreatePromocodePage from "./pages/Promocode/commun/CreatePromocodePage.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -35,6 +36,7 @@ createRoot(document.getElementById("root")!).render(
 
               <Route path="/promocodes" element={< PromocodePage/>} />
               <Route path="/promocodes/:id" element={< EditPromocodePage/>} />
+              <Route path="/promocodes/new" element={<CreatePromocodePage/>} />
           </Route>
         
 
