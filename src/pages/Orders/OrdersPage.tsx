@@ -10,8 +10,6 @@ const OrdersPage: React.FC = () => {
 
   // 1. Move fetchOrders here so it can be reused
   const fetchOrders = async () => {
-    // We don't necessarily want the full-screen loading spinner 
-    // to pop up every time we delete an item, but for now it's fine
     try {
       const response = await getOrders();
       setOrders(response);
