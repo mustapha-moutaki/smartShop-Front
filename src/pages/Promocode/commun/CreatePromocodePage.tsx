@@ -2,10 +2,16 @@ import { Target } from "lucide-react";
 import { useState } from "react";
 import type { PromoCodeRequest } from "../../../types/promocode";
 import { createPromocde } from "../../../services/promocode.service";
+import { useNavigate } from "react-router-dom";
 const createPromocdePage = ()=>{
     const [code, setCode] = useState("");
     const [percentage, setPercentage] = useState(0);
     const [loading , setLoading] = useState(false);
+    const navigate = useNavigate()
+
+
+
+
     const payload: PromoCodeRequest = {
         code: code,
         percentage: percentage
@@ -15,6 +21,8 @@ const createPromocdePage = ()=>{
             try{
                 setLoading(true);
               await createPromocde(payload);
+              navigate("/promocodes");
+              
             }catch(err:any){
                 console.log("Failed to create a promocode ", err)
             }finally{
