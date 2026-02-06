@@ -36,6 +36,10 @@ export default function Sidebar() {
         <Link to="/promocodes" className={linkClass("/promocodes")}>
         <span className="front-medium">Manage promocodes</span>
         </Link>
+
+        <Link to="/products" className={linkClass("/products")}>
+          <span className="font-medium">Products</span>
+        </Link>
       </nav>
 
       {/* Logout or Help Section */}
