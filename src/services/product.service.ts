@@ -8,3 +8,8 @@ export const getAllProducts = async()=>{
     return response?.data;
 }
 
+
+export const deleteProduct = async(id: number)=>{
+    const response = await apiClient.delete(`${PRODUCT_BASE}/${id}`);
+    return response?.data;
+}
