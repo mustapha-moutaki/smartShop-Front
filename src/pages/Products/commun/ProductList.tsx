@@ -3,9 +3,10 @@ import type { ProductResponse } from "../../../types/product";
 
 interface ProductListProps {
     products: ProductResponse[];
+    deleteProduct: (id: number)=>void;
 }
 
-const ProductList: React.FC<ProductListProps> = ({ products }) => {
+const ProductList: React.FC<ProductListProps> = ({ products,  deleteProduct}) => {
     return (
         <div className="w-full max-w-6xl mx-auto p-6">
             {/* Header Section styled to match the clean Slate aesthetic */}
@@ -48,7 +49,7 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
                                     <td className="px-6 py-4">
                                         <div className="flex justify-end gap-2">
                                             <EditButtonOutline />
-                                            <DeleteButtonOutline />
+                                            <DeleteButtonOutline onClick={()=>deleteProduct(pro.id)}/>
                                         </div>
                                     </td>
                                 </tr>
