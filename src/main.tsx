@@ -14,6 +14,9 @@ import EditPromocodePage from "./pages/Promocode/EditPromocodePage.tsx";
 import CreatePromocodePage from "./pages/Promocode/commun/CreatePromocodePage.tsx";
 import ProductsPage from "./pages/Products/ProductsPage.tsx";
 import UpdateProductPage from "./pages/Products/UpdateProductPage.tsx";
+import PaymentsPage from "./pages/Payments/PaymentsPage.tsx";
+import CreatePaymentPage from "./pages/Payments/CreatePaymentPage.tsx";
+import UpdatePaymentPage from "./pages/Payments/UpdatePaymentPage.tsx";
 // import CreateOrderPage from ".//pages/Orders/CreatOrderPage.tsx"
 
 createRoot(document.getElementById("root")!).render(
@@ -40,6 +43,10 @@ createRoot(document.getElementById("root")!).render(
 
               <Route path="/products" element={<ProductsPage/> } />
               <Route path="/products/:id" element={<UpdateProductPage/>} />
+
+              <Route path="/payments" element={<PaymentsPage/>} />
+              <Route path="/payments/new" element={<CreatePaymentPage/>} />
+              <Route path="/payments/:id" element={<UpdatePaymentPage/>} />
 
               <Route path="/promocodes" element={< PromocodePage/>} />
               <Route path="/promocodes/:id" element={< EditPromocodePage/>} />
