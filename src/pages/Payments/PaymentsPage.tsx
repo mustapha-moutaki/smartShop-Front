@@ -6,8 +6,6 @@ import type { PageResponse, PaymentResponse } from "../../types/payment";
 
 const PaymentsPage = () => {
     const [payments, setPayments] = useState<PaymentResponse[]>([]); 
-    const [totalPages, setTotalPages] = useState<number>(0);
-    const [page, setPage] = useState<number>(0);
     const [loading, setLoading] = useState(false);
     const [errors, setErrors] = useState<string | null>(null); 
     const navigate = useNavigate();
@@ -20,8 +18,6 @@ const PaymentsPage = () => {
             const response: PageResponse<PaymentResponse> = await getAllPayments();
 
             setPayments(response.content);
-            setTotalPages(response.totalPages);
-            setPage(response.number);
 
             console.log("the payments fetched successfully: ", response);
 
@@ -58,7 +54,6 @@ const PaymentsPage = () => {
         <>
             <div className="space-y-6 p-4 md:p-0">
 
-                {/* Header Section */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div>
                         <h1 className="text-2xl font-bold text-slate-900">Payment Management</h1>
@@ -74,14 +69,12 @@ const PaymentsPage = () => {
                     </button>
                 </div>
 
-                {/* Error Message */}
                 {errors && (
                     <div className="p-4 bg-red-50 border border-red-100 text-red-600 rounded-xl text-sm">
                         Error loading payments. Please try again.
                     </div>
                 )}
 
-                {/* Main Content Area */}
                 <div className="min-h-[400px]">
                     {loading ? (
                         <div className="flex flex-col items-center justify-center py-20 bg-white rounded-2xl border border-slate-100 shadow-sm">
