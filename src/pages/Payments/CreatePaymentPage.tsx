@@ -11,7 +11,7 @@ const CreatePaymentPage = () => {
     const [error, setError] = useState("");
     const [orders, setOrders] = useState<OrderResponse[]>([]);
     const navigate = useNavigate();
-
+ 
     const [orderId, setOrderId] = useState<number | null>(null);
     const [amount, setAmount] = useState<number | null>();
     const [paymentType, setPaymentType] = useState('');
@@ -23,7 +23,7 @@ const CreatePaymentPage = () => {
             setFetchingOrders(true);
             try {
                 const response = await getOrders();
-                // Handle both array and PageResponse structure
+            
                 const ordersList = Array.isArray(response) ? response : response.content || [];
                 setOrders(ordersList);
             } catch (err: any) {
@@ -50,6 +50,7 @@ const CreatePaymentPage = () => {
             setError("Please select an order");
             return;
         }
+        
         setLoading(true);
         setError('');
         try {
@@ -67,7 +68,6 @@ const CreatePaymentPage = () => {
         <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden p-8 border border-slate-100">
                 
-                {/* Header */}
                 <div className="mb-8">
                     <h2 className="text-2xl font-bold text-slate-800">Create Payment</h2>
                     <p className="text-slate-500 text-sm">Add a new payment transaction below.</p>
@@ -75,14 +75,12 @@ const CreatePaymentPage = () => {
 
                 <form onSubmit={handleCreatePayment} className="space-y-6">
                     
-                    {/* Error Message */}
                     {error && (
                         <div className="bg-red-50 text-red-600 p-3 rounded-lg text-sm border border-red-100">
                             {error}
                         </div>
                     )}
 
-                    {/* Input Order ID */}
                     <div>
                         <label htmlFor="orderId" className="block text-sm font-semibold text-slate-700 mb-2">
                             Order <span className="text-red-500">*</span>
@@ -109,7 +107,6 @@ const CreatePaymentPage = () => {
                         )}
                     </div>
 
-                    {/* Input Amount */}
                     <div>
                         <label htmlFor="amount" className="block text-sm font-semibold text-slate-700 mb-2">
                             Amount <span className="text-red-500">*</span>
@@ -127,7 +124,6 @@ const CreatePaymentPage = () => {
                         />
                     </div>
 
-                    {/* Input Payment Type */}
                     <div>
                         <label htmlFor="paymentType" className="block text-sm font-semibold text-slate-700 mb-2">
                             Payment Type <span className="text-red-500">*</span>
@@ -149,7 +145,6 @@ const CreatePaymentPage = () => {
                         </select>
                     </div>
 
-                    {/* Input Payment Date */}
                     <div>
                         <label htmlFor="paymentDate" className="block text-sm font-semibold text-slate-700 mb-2">
                             Payment Date (Optional)
@@ -163,7 +158,6 @@ const CreatePaymentPage = () => {
                         />
                     </div>
 
-                    {/* Input Encashment Date */}
                     <div>
                         <label htmlFor="encashmentDate" className="block text-sm font-semibold text-slate-700 mb-2">
                             Encashment Date (Optional)
@@ -177,7 +171,6 @@ const CreatePaymentPage = () => {
                         />
                     </div>
 
-                    {/* Submit Button */}
                     <button
                         type="submit"
                         disabled={loading}
