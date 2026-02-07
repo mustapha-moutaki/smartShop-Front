@@ -1,5 +1,7 @@
+import { useNavigate } from "react-router-dom";
 import { DeleteButtonOutline, EditButtonOutline } from "../../../components/commun/Button";
-import type { ProductResponse } from "../../../types/product";
+import { updateProduct } from "../../../services/product.service";
+import type { ProductRequest, ProductResponse } from "../../../types/product";
 
 interface ProductListProps {
     products: ProductResponse[];
@@ -7,6 +9,11 @@ interface ProductListProps {
 }
 
 const ProductList: React.FC<ProductListProps> = ({ products,  deleteProduct}) => {
+
+
+    const navigate = useNavigate();
+
+
     return (
         <div className="w-full max-w-6xl mx-auto p-6">
             {/* Header Section styled to match the clean Slate aesthetic */}
@@ -48,7 +55,7 @@ const ProductList: React.FC<ProductListProps> = ({ products,  deleteProduct}) =>
                                     </td>
                                     <td className="px-6 py-4">
                                         <div className="flex justify-end gap-2">
-                                            <EditButtonOutline />
+                                            <EditButtonOutline onClick={()=>navigate(`/products/${pro.id}`)} />
                                             <DeleteButtonOutline onClick={()=>deleteProduct(pro.id)}/>
                                         </div>
                                     </td>

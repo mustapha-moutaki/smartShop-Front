@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import ProductList from "./commun/ProductList"
-import { deleteProduct, getAllProducts } from "../../services/product.service";
+import { deleteProduct, getAllProducts, updateProduct } from "../../services/product.service";
 import { useNavigate } from "react-router-dom";
-import type { PageResponse, ProductResponse } from "../../types/product";
+import type { PageResponse, ProductRequest, ProductResponse } from "../../types/product";
+
 
 
 const ProductsPage = () => {
@@ -20,6 +21,8 @@ const ProductsPage = () => {
     const [errors, setErros] = useState<string | null>(null); 
 
     const navigate = useNavigate();
+
+  
 
     const fetchProducts = async () => {
         setLoading(true);
@@ -72,6 +75,7 @@ const ProductsPage = () => {
         }
     }
 
+    
 
     return (
         <>
@@ -110,7 +114,7 @@ const ProductsPage = () => {
                     ) : (
                         <div>
                           
-                            <ProductList products={products} deleteProduct={handleDeleteProduct}/>
+                            <ProductList products={products} deleteProduct={handleDeleteProduct} />
                         </div>
                     )}
                 </div>
