@@ -45,6 +45,7 @@ export default function Sidebar() {
           <span className="font-medium">Manage Payments</span>
         </Link>
       </nav>
+      
 
       {/* Logout or Help Section */}
       <div className="p-4 border-t border-slate-100">
