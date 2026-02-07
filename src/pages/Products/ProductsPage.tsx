@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import ProductList from "./commun/ProductList"
-import { getAllProducts } from "../../services/product.service";
+import { deleteProduct, getAllProducts, updateProduct } from "../../services/product.service";
 import { useNavigate } from "react-router-dom";
-import type { PageResponse, ProductResponse } from "../../types/product";
+import type { PageResponse, ProductRequest, ProductResponse } from "../../types/product";
+
 
 const ProductsPage = () => {
 
@@ -17,6 +18,8 @@ const ProductsPage = () => {
     const [errors, setErros] = useState<string | null>(null); 
 
     const navigate = useNavigate();
+
+  
 
     const fetchProducts = async () => {
         setLoading(true);
@@ -50,6 +53,26 @@ const ProductsPage = () => {
     useEffect(() => {
         fetchProducts();
     }, [])
+
+
+
+    const handleDeleteProduct = async(id: number)=>{
+        if(!confirm("are you sure you want to delete this product? "))return;
+
+        setLoading(true);
+        setErros('');
+        try{
+            await deleteProduct(id);
+            fetchProducts();
+        }catch(err: any){
+            console.log("Failed to delete produc with id"+ id, err);
+            setErros(err);
+        }finally{
+            setLoading(false)
+        }
+    }
+
+    
 
     return (
         <>
@@ -88,7 +111,7 @@ const ProductsPage = () => {
                     ) : (
                         <div>
                           
-                            <ProductList products={products} />
+                            <ProductList products={products} deleteProduct={handleDeleteProduct} />
                         </div>
                     )}
                 </div>

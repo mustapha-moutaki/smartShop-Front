@@ -5,6 +5,11 @@ export interface ProductResponse{
  stock?: number;
 }
 
+export interface ProductRequest{
+  name:string;
+  unitPrice:number;
+  stock?: number;
+}
 
 export interface PageResponse<T>{
  content: T[];

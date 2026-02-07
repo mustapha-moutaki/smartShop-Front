@@ -1,11 +1,19 @@
+import { useNavigate } from "react-router-dom";
 import { DeleteButtonOutline, EditButtonOutline } from "../../../components/commun/Button";
-import type { ProductResponse } from "../../../types/product";
+import { updateProduct } from "../../../services/product.service";
+import type { ProductRequest, ProductResponse } from "../../../types/product";
 
 interface ProductListProps {
     products: ProductResponse[];
+    deleteProduct: (id: number)=>void;
 }
 
-const ProductList: React.FC<ProductListProps> = ({ products }) => {
+const ProductList: React.FC<ProductListProps> = ({ products,  deleteProduct}) => {
+
+
+    const navigate = useNavigate();
+
+
     return (
         <div className="w-full max-w-6xl mx-auto p-6">
           
@@ -46,8 +54,8 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
                                     </td>
                                     <td className="px-6 py-4">
                                         <div className="flex justify-end gap-2">
-                                            <EditButtonOutline />
-                                            <DeleteButtonOutline />
+                                            <EditButtonOutline onClick={()=>navigate(`/products/${pro.id}`)} />
+                                            <DeleteButtonOutline onClick={()=>deleteProduct(pro.id)}/>
                                         </div>
                                     </td>
                                 </tr>

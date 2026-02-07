@@ -13,6 +13,7 @@ import PromocodePage from "./pages/Promocode/PromocodePage.tsx";
 import EditPromocodePage from "./pages/Promocode/EditPromocodePage.tsx";
 import CreatePromocodePage from "./pages/Promocode/commun/CreatePromocodePage.tsx";
 import ProductsPage from "./pages/Products/ProductsPage.tsx";
+import UpdateProductPage from "./pages/Products/UpdateProductPage.tsx";
 // import CreateOrderPage from ".//pages/Orders/CreatOrderPage.tsx"
 
 createRoot(document.getElementById("root")!).render(
@@ -38,6 +39,7 @@ createRoot(document.getElementById("root")!).render(
               {/* <Route path="/orders/new" element={< CreateOrderPage/>} /> */}
 
               <Route path="/products" element={<ProductsPage/> } />
+              <Route path="/products/:id" element={<UpdateProductPage/>} />
 
               <Route path="/promocodes" element={< PromocodePage/>} />
               <Route path="/promocodes/:id" element={< EditPromocodePage/>} />
