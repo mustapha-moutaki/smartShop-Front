@@ -53,12 +53,10 @@ const UpdatePaymentPage = () => {
         try {
             const response = await getPaymentById(Number(id));
             setPayment(response);
-            // Populate form fields with fetched payment data
             if (response) {
                 setOrderId(response.orderId || null);
                 setAmount(response.amount || null);
                 setPaymentType(response.paymentType || '');
-                // Format dates for input fields (YYYY-MM-DD)
                 if (response.paymentDate) {
                     const date = new Date(response.paymentDate);
                     setPaymentDate(date.toISOString().split('T')[0]);
@@ -126,7 +124,6 @@ const UpdatePaymentPage = () => {
         <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden p-8 border border-slate-100">
                 
-                {/* Header */}
                 <div className="mb-8">
                     <h2 className="text-2xl font-bold text-slate-800">Update Payment</h2>
                     <p className="text-slate-500 text-sm">Update the details of your payment below.</p>
@@ -134,14 +131,12 @@ const UpdatePaymentPage = () => {
 
                 <form onSubmit={handleEditPayment} className="space-y-6">
                     
-                    {/* Error Message */}
                     {error && (
                         <div className="bg-red-50 text-red-600 p-3 rounded-lg text-sm border border-red-100">
                             {error}
                         </div>
                     )}
 
-                    {/* Input Order ID */}
                     <div>
                         <label htmlFor="orderId" className="block text-sm font-semibold text-slate-700 mb-2">
                             Order <span className="text-red-500">*</span>
@@ -168,7 +163,6 @@ const UpdatePaymentPage = () => {
                         )}
                     </div>
 
-                    {/* Input Amount */}
                     <div>
                         <label htmlFor="amount" className="block text-sm font-semibold text-slate-700 mb-2">
                             Amount <span className="text-red-500">*</span>
@@ -186,7 +180,6 @@ const UpdatePaymentPage = () => {
                         />
                     </div>
 
-                    {/* Input Payment Type */}
                     <div>
                         <label htmlFor="paymentType" className="block text-sm font-semibold text-slate-700 mb-2">
                             Payment Type <span className="text-red-500">*</span>
@@ -208,7 +201,6 @@ const UpdatePaymentPage = () => {
                         </select>
                     </div>
 
-                    {/* Input Payment Date */}
                     <div>
                         <label htmlFor="paymentDate" className="block text-sm font-semibold text-slate-700 mb-2">
                             Payment Date (Optional)
@@ -222,7 +214,6 @@ const UpdatePaymentPage = () => {
                         />
                     </div>
 
-                    {/* Input Encashment Date */}
                     <div>
                         <label htmlFor="encashmentDate" className="block text-sm font-semibold text-slate-700 mb-2">
                             Encashment Date (Optional)
@@ -236,7 +227,6 @@ const UpdatePaymentPage = () => {
                         />
                     </div>
 
-                    {/* Submit Button */}
                     <button
                         type="submit"
                         disabled={loading}
