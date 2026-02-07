@@ -40,6 +40,10 @@ export default function Sidebar() {
         <Link to="/products" className={linkClass("/products")}>
           <span className="font-medium">Products</span>
         </Link>
+
+        <Link to="/payments" className={linkClass("/payments")}>
+          <span className="font-medium">Manage Payments</span>
+        </Link>
       </nav>
 
       {/* Logout or Help Section */}
